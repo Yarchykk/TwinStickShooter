@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c8sfe3ullbs3p"]
+
+[ext_resource type="Script" uid="uid://cbru8mstgo11c" path="res://src/gameplay/components/rotate_shoot_component.gd" id="1_s8tie"]
+[ext_resource type="PackedScene" uid="uid://tctwbffpbmbj" path="res://src/gameplay/weapons/bullet.tscn" id="2_ttvhe"]
+[ext_resource type="Texture2D" uid="uid://dke631n1edd37" path="res://icon.svg" id="3_l47y0"]
+
+[node name="RotateShoot_Component" type="Node2D"]
+top_level = true
+script = ExtResource("1_s8tie")
+Bullet = ExtResource("2_ttvhe")
+
+[node name="Spawn_Locations" type="Node2D" parent="."]
+
+[node name="RotatedAttackCooldown" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_l47y0")
+
+[connection signal="timeout" from="RotatedAttackCooldown" to="." method="_on_rotated_shoot_timer_timeout"]

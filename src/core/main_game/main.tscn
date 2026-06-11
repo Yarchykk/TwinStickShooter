@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b21gaukn6r5r5"]
+
+[ext_resource type="Script" uid="uid://ct42ih7djcw7" path="res://src/core/main_game/main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b2056bmm1dfyj" path="res://src/gameplay/actors/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dkg2jajrgh8sc" path="res://src/core/managers/Bullet_Manager.gd" id="3_h2yge"]
+
+[node name="Main" type="Node2D" unique_id=1783955429]
+script = ExtResource("1_0xm2m")
+
+[node name="Player" parent="." unique_id=394619187 instance=ExtResource("1_ig7tw")]
+position = Vector2(959, 831)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=734590221]
+position = Vector2(953, 543)
+
+[node name="BulletManager" type="Node2D" parent="." unique_id=771528681]
+script = ExtResource("3_h2yge")

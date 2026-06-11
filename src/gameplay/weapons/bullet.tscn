@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://tctwbffpbmbj"]
+
+[ext_resource type="Script" uid="uid://bi30wo3vcoey2" path="res://src/gameplay/weapons/Bullet.gd" id="1_lr1vc"]
+[ext_resource type="Texture2D" uid="uid://dchrje64jqbr8" path="res://assets/art/world/props/Bullet_Sprite.png" id="2_r2uki"]
+[ext_resource type="AudioStream" uid="uid://bffau1p1cg5s1" path="res://assets/audio/sfx/tap.wav" id="3_dyc78"]
+[ext_resource type="AudioStream" uid="uid://du2s3ns3h0k5d" path="res://assets/audio/sfx/hurt.wav" id="4_13wgh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7ayf"]
+
+[node name="Bullet" type="Area2D" unique_id=1846376851]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_lr1vc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=51282679]
+scale = Vector2(5.05906, 5.05906)
+shape = SubResource("CircleShape2D_j7ayf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1507308182]
+rotation = 1.5708
+texture = ExtResource("2_r2uki")
+
+[node name="KillTimer" type="Timer" parent="." unique_id=1196689584]
+wait_time = 5.0
+one_shot = true
+
+[node name="BulletFired" type="AudioStreamPlayer2D" parent="." unique_id=161702919]
+stream = ExtResource("3_dyc78")
+autoplay = true
+
+[node name="BulletHitSomething" type="AudioStreamPlayer2D" parent="." unique_id=52130547]
+stream = ExtResource("4_13wgh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]
