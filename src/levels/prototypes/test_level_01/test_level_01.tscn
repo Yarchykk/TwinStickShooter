@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bd0bbt5i2bw62"]
+
+[ext_resource type="Script" uid="uid://bb8ia04em7q6t" path="res://src/levels/prototypes/test_level_01/test_level_01.gd" id="1_uov3q"]
+
+[node name="TestLevel_01" type="Node2D" unique_id=413139133]
+script = ExtResource("1_uov3q")
+
+[node name="Background" type="Node2D" parent="." unique_id=262589756]
+
+[node name="Tilemaps" type="Node2D" parent="." unique_id=793411913]
+
+[node name="LevelObjects" type="Node2D" parent="." unique_id=519156137]
+
+[node name="Environment" type="Node2D" parent="." unique_id=294087737]
